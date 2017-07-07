@@ -1,39 +1,43 @@
-#!/usr/bin/python3
+"""
+File: combine_data.py
+Author: Uno Vaaland
+Description: Combines volumetric data files from the processees into a single mesh file. 
+"""
 
 import os
 
 
 def combine_data(component):
-  print(component)
 
-  slices = "./slices.txt"
-  input_topo = "./DATABASES_MPI/"
-  input_file = "./DATABASES_MPI/"
-  output = "./OUTPUT_FILES/"
-
-  os.system("./bin/xcombine_vol_data_vtk {} {} {} {} {} 0".format(slices, component, input_topo, 
+    slices = "./slices.txt"
+    input_topo = "./DATABASES_MPI/"
+    input_file = "./DATABASES_MPI/"
+    output = "./OUTPUT_FILES/"
+    print("  Combining data for component: {}".format(component))
+    os.system("./bin/xcombine_vol_data_vtk {} {} {} {} {} 0".format(slices, component, input_topo, 
                                                                   input_file, output))
 
 
 def create_slices_file(nslice):
-  with open("slices.txt", 'w') as f:
-    for i in range(nslice):
-      f.write("{}\n".format(i))
+
+    with open("slices.txt", 'w') as f:
+        for i in range(nslice):
+            f.write("{}\n".format(i))
 
 
 def cleanup():
-  os.remove("slices.txt")
+
+    os.remove("slices.txt")
 
 
 if __name__ == '__main__':
   
-  # Parameters
-  nslice = 64
-  components = ['vp', 'vs']
+    nslice = 64
+    components = ['vp', 'vs']
 
-  create_slices_file(nslice)
+    create_slices_file(nslice)
 
-  for component in components:
-    combine_data(component)
+    for component in components:
+      combine_data(component)
 
-  cleanup() 
+    cleanup() 
