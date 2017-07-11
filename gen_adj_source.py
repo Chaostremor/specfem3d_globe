@@ -7,7 +7,6 @@ Description: A program for preparing adjoint sources from the seismograms
 
 
 import sys, os
-from 
 from shutil import copyfile
 
 
