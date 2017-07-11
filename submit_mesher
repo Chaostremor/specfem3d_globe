@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=16
+#SBATCH -t 00:30:00
+
+# load appropriate compilers/libraries
+module load intel/16.0/64/16.0.4.258
+module load intel-mpi/intel/5.1.3/64
+
+# change directory to build
+cd /scratch/gpfs/uvaaland/tutorial/specfem3d_globe 
+
+srun -n 16 ./bin/xmeshfem3D
