@@ -1,7 +1,0 @@
-
-https://forge.imag.fr/projects/boast
-
-also at
-
-http://rubygems.org/gems/BOAST
-

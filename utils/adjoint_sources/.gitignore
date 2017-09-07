@@ -1,6 +1,0 @@
-amplitude/*.o
-amplitude/xcreate_adjsrc_amplitude
-
-traveltime/*.o
-traveltime/xcreate_adjsrc_traveltime
-
