@@ -6,6 +6,7 @@ Description: Combines volumetric data files from the processees into a single me
 
 
 import os
+import glob
 
 
 def combine_data(component):
@@ -33,12 +34,15 @@ def cleanup():
 
 if __name__ == '__main__':
   
-    nslice = 64
+    try:
+        nslice = len(glob.glob1("DATABASES_MPI/", "*_vp.bin"))//3
+    except Exception:
+        nslice = 144
     components = ['vp', 'vs']
 
     create_slices_file(nslice)
 
     for component in components:
-      combine_data(component)
+        combine_data(component)
 
     cleanup() 
